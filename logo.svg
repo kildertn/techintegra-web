@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 570" width="520" height="570">
+  <defs>
+    <clipPath id="shieldClip">
+      <path d="M260 16
+               C260 16 408 66 408 66
+               L408 262
+               C408 362 260 455 260 455
+               C260 455 112 362 112 262
+               L112 66 Z"/>
+    </clipPath>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a2d6e"/>
+      <stop offset="100%" stop-color="#162252"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Drop shadow -->
+  <path d="M260 20 C260 20 404 69 404 69 L404 263 C404 360 260 450 260 450
+           C260 450 116 360 116 263 L116 69 Z"
+        fill="rgba(0,0,0,0.22)" transform="translate(5,8) scale(1.01)"/>
+
+  <!-- Shield body -->
+  <path d="M260 16 C260 16 408 66 408 66 L408 262
+           C408 362 260 455 260 455 C260 455 112 362 112 262 L112 66 Z"
+        fill="url(#shieldGrad)"/>
+
+  <!-- Inner border -->
+  <path d="M260 36 C260 36 390 82 390 82 L390 261
+           C390 351 260 434 260 434 C260 434 130 351 130 261 L130 82 Z"
+        fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+
+  <g clip-path="url(#shieldClip)">
+    <!-- ── Orange stripe band (3 elements) ── -->
+    <!-- Outer white line 1 -->
+    <polygon points="112,425 192,268 328,268 410,108 396,96 308,258 178,258 94,410"
+             fill="rgba(255,255,255,0.15)"/>
+    <!-- Main orange fill -->
+    <polygon points="128,440 202,278 322,278 402,120 386,108 310,268 196,268 112,428"
+             fill="#F47B20"/>
+    <!-- Inner white highlight line -->
+    <polygon points="148,440 218,292 310,292 388,130 378,122 304,282 212,282 138,436"
+             fill="rgba(255,255,255,0.18)"/>
+    <!-- Thin dark shadow edge right -->
+    <polygon points="322,278 402,120 410,128 328,286"
+             fill="rgba(0,0,0,0.18)"/>
+
+    <!-- ── Circuit LEFT (upper-left area, above/left of stripe) ── -->
+    <!-- Main vertical -->
+    <line x1="178" y1="72"  x2="178" y2="240" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Branch 1: top left -->
+    <line x1="178" y1="95"  x2="146" y2="95"  stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <line x1="146" y1="95"  x2="146" y2="80"  stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Branch 2: mid left -->
+    <line x1="178" y1="130" x2="144" y2="130" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <line x1="144" y1="130" x2="144" y2="147" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Branch 3: right mid -->
+    <line x1="178" y1="166" x2="210" y2="166" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Branch 4: lower left -->
+    <line x1="178" y1="205" x2="148" y2="205" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Nodes -->
+    <circle cx="178" cy="72"  r="7"   fill="#F47B20"/>
+    <circle cx="146" cy="95"  r="5.5" fill="#F47B20"/>
+    <circle cx="146" cy="80"  r="4"   fill="#F47B20"/>
+    <circle cx="178" cy="130" r="5.5" fill="#F47B20"/>
+    <circle cx="144" cy="147" r="5.5" fill="#F47B20"/>
+    <circle cx="178" cy="166" r="5.5" fill="#F47B20"/>
+    <circle cx="210" cy="166" r="5.5" fill="#F47B20"/>
+    <circle cx="148" cy="205" r="5.5" fill="#F47B20"/>
+    <circle cx="178" cy="240" r="6.5" fill="#F47B20"/>
+
+    <!-- ── Circuit RIGHT (lower-right area, below/right of stripe) ── -->
+    <line x1="332" y1="296" x2="332" y2="430" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Branch 1: right top -->
+    <line x1="332" y1="316" x2="366" y2="316" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <line x1="366" y1="316" x2="366" y2="300" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Branch 2: right mid -->
+    <line x1="332" y1="352" x2="370" y2="352" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <line x1="370" y1="352" x2="370" y2="370" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Branch 3: left -->
+    <line x1="332" y1="392" x2="296" y2="392" stroke="rgba(255,255,255,0.65)" stroke-width="2.2"/>
+    <!-- Nodes -->
+    <circle cx="332" cy="296" r="7"   fill="#F47B20"/>
+    <circle cx="366" cy="316" r="5.5" fill="#F47B20"/>
+    <circle cx="366" cy="300" r="4"   fill="#F47B20"/>
+    <circle cx="370" cy="352" r="5.5" fill="#F47B20"/>
+    <circle cx="370" cy="370" r="5.5" fill="#F47B20"/>
+    <circle cx="296" cy="392" r="5.5" fill="#F47B20"/>
+    <circle cx="332" cy="430" r="7"   fill="#F47B20"/>
+  </g>
+
+  <!-- TECHINTEGRA -->
+  <text x="260" y="516"
+        font-family="'Arial Black','Impact','Arial',sans-serif"
+        font-size="52" font-weight="900"
+        fill="#1B2A5E"
+        text-anchor="middle"
+        letter-spacing="5">TECHINTEGRA</text>
+</svg>

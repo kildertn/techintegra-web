@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Política de Cookies – TechIntegra</title>
+  <meta name="description" content="Política de Cookies de TechIntegra. Consultoría técnica integral en Murcia."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--navy:#162040;--navy-d:#0c1528;--orange:#F5800A;--bg:#080e1f;--bg2:#0a1020;--white:#fff;--text:rgba(255,255,255,.8);--muted:rgba(255,255,255,.45);--border:rgba(255,255,255,.08);--r:14px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    a{text-decoration:none;color:var(--orange)}
+    a:hover{text-decoration:underline}
+    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,14,31,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo img{height:48px;width:auto}
+    .nav-right{display:flex;align-items:center;gap:20px}
+    .nav-link{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.65);transition:color .2s}
+    .nav-link:hover{color:#fff;text-decoration:none}
+    .btn-back{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;background:rgba(245,128,10,.1);border:1px solid rgba(245,128,10,.25);color:var(--orange);font-size:.85rem;font-weight:600;transition:all .2s}
+    .btn-back:hover{background:rgba(245,128,10,.2);text-decoration:none}
+    .breadcrumb{max-width:800px;margin:0 auto;padding:20px 24px 0;display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted)}
+    .breadcrumb a{color:var(--muted);transition:color .2s}
+    .breadcrumb a:hover{color:var(--orange);text-decoration:none}
+    .breadcrumb span{color:var(--orange)}
+    main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+    .page-header{margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(245,128,10,.2)}
+    .page-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);background:rgba(245,128,10,.1);border:1px solid rgba(245,128,10,.25);padding:4px 14px;border-radius:100px;margin-bottom:16px}
+    h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;color:var(--white);line-height:1.2;margin-bottom:12px}
+    .updated{font-size:.82rem;color:var(--muted)}
+    .legal-section{padding:28px 0;border-bottom:1px solid rgba(245,128,10,.1)}
+    .legal-section:last-child{border-bottom:none}
+    h2{font-size:1.1rem;font-weight:700;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    h2::before{content:'';width:3px;height:1em;background:var(--orange);border-radius:2px;flex-shrink:0}
+    h3{font-size:.96rem;font-weight:700;color:var(--white);margin-bottom:8px;margin-top:16px}
+    p{font-size:.92rem;color:var(--text);margin-bottom:12px}
+    p:last-child{margin-bottom:0}
+    ul{padding-left:0;display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
+    li{font-size:.92rem;color:var(--text);padding-left:18px;position:relative}
+    li::before{content:'—';position:absolute;left:0;color:var(--orange);font-size:.8rem}
+    .highlight-box{background:rgba(245,128,10,.08);border:1px solid rgba(245,128,10,.2);border-left:3px solid var(--orange);border-radius:8px;padding:16px 20px;margin:12px 0}
+    .highlight-box p{font-size:.88rem;margin:0}
+    .green-box{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);border-left:3px solid #4ade80;border-radius:8px;padding:16px 20px;margin:12px 0}
+    .green-box p{font-size:.88rem;margin:0;color:rgba(255,255,255,.75)}
+    table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+    th{background:rgba(245,128,10,.12);color:var(--white);padding:10px 14px;text-align:left;border:1px solid var(--border);font-weight:600}
+    td{padding:10px 14px;border:1px solid var(--border);color:var(--text);vertical-align:top}
+    tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+    .browser-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+    .browser-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:16px;transition:border-color .2s}
+    .browser-card:hover{border-color:rgba(245,128,10,.25)}
+    .browser-card .b-name{font-weight:700;color:var(--white);margin-bottom:4px;font-size:.9rem}
+    .browser-card a{font-size:.82rem;word-break:break-all}
+    footer{background:#050b18;color:var(--muted)}
+    .footer-gradient{height:1px;background:linear-gradient(90deg,transparent,var(--orange),#0069a6,transparent)}
+    .footer-inner{max-width:1200px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+    .footer-brand{display:flex;align-items:center;gap:12px}
+    .footer-brand img{height:36px;background:#fff;padding:3px 7px;border-radius:6px}
+    .footer-brand span{font-size:.82rem}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .footer-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+    .footer-links a:hover{color:var(--orange);text-decoration:none}
+    .footer-copy{width:100%;text-align:center;padding-top:20px;border-top:1px solid var(--border);font-size:.78rem}
+    @media(max-width:600px){.nav-link{display:none}.footer-inner{justify-content:center;text-align:center}.browser-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="TechIntegra"/></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="index.html#contacto" class="nav-link">Contacto</a>
+      <a href="index.html" class="btn-back">← Volver al inicio</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <span>Política de Cookies</span>
+</div>
+
+<main>
+  <div class="page-header">
+    <div class="page-tag">Legal</div>
+    <h1>Política de Cookies</h1>
+    <p class="updated">Última actualización: mayo de 2026 · Conforme al RGPD (UE) 2016/679 y Ley 34/2002 LSSI-CE</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>1. ¿Qué son las cookies?</h2>
+    <p>Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (ordenador, móvil o tablet) cuando visita un sitio web. Permiten que el sitio recuerde información sobre su visita, como sus preferencias de idioma u otras configuraciones, lo que facilita su próxima visita y hace el sitio más útil para usted.</p>
+    <p>Las cookies no pueden ejecutarse como programas ni transmitir virus. Son únicamente archivos de datos que sirven para mejorar la experiencia de navegación.</p>
+    <div class="green-box">
+      <p>✅ <strong>TechIntegra solo utiliza cookies técnicas estrictamente necesarias.</strong> No empleamos cookies publicitarias, de rastreo de comportamiento, de perfiles de usuario ni de terceros con fines comerciales.</p>
+    </div>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. Cookies que utilizamos en techintegra.es</h2>
+    <p>El sitio web de TechIntegra utiliza únicamente las siguientes cookies técnicas, imprescindibles para su correcto funcionamiento:</p>
+    <table>
+      <tr><th>Nombre</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr>
+      <tr><td><code>session_id</code></td><td>Técnica de sesión</td><td>Mantener la sesión activa durante la navegación y garantizar el correcto funcionamiento del formulario de contacto</td><td>Sesión (se elimina al cerrar el navegador)</td></tr>
+      <tr><td><code>csrf_token</code></td><td>Técnica de seguridad</td><td>Proteger el formulario de contacto contra ataques CSRF (falsificación de solicitudes)</td><td>Sesión</td></tr>
+    </table>
+    <p><strong>No utilizamos:</strong></p>
+    <ul>
+      <li>Google Analytics ni ninguna herramienta de analítica web</li>
+      <li>Píxeles de Facebook, TikTok u otras redes sociales</li>
+      <li>Cookies de publicidad comportamental o retargeting</li>
+      <li>Cookies de terceros con fines comerciales</li>
+      <li>Herramientas de mapas de calor ni grabación de sesiones</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Base legal para el uso de cookies</h2>
+    <p>Las cookies técnicas de sesión utilizadas en este sitio web no requieren el consentimiento previo del usuario, ya que son estrictamente necesarias para la prestación del servicio solicitado expresamente por el usuario (art. 22.2 LSSI-CE y considerando 25 de la Directiva 2009/136/CE).</p>
+    <p>En todo caso, puede configurar su navegador para bloquear o eliminar estas cookies, aunque esto podría afectar al funcionamiento del formulario de contacto.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Cómo desactivar o eliminar las cookies</h2>
+    <p>Puede configurar su navegador para rechazar, bloquear o eliminar las cookies. A continuación encontrará las instrucciones para los principales navegadores:</p>
+    <div class="browser-grid">
+      <div class="browser-card">
+        <div class="b-name">🟡 Google Chrome</div>
+        <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Guía oficial de Chrome →</a>
+      </div>
+      <div class="browser-card">
+        <div class="b-name">🦊 Mozilla Firefox</div>
+        <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web" target="_blank" rel="noopener">Guía oficial de Firefox →</a>
+      </div>
+      <div class="browser-card">
+        <div class="b-name">🍎 Safari</div>
+        <a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Guía oficial de Safari →</a>
+      </div>
+      <div class="browser-card">
+        <div class="b-name">🔵 Microsoft Edge</div>
+        <a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Guía oficial de Edge →</a>
+      </div>
+    </div>
+
+    <h3>Instrucciones generales</h3>
+    <p>En la mayoría de navegadores puede gestionar las cookies accediendo a:</p>
+    <ul>
+      <li><strong>Chrome:</strong> Menú ⋮ → Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</li>
+      <li><strong>Firefox:</strong> Menú ☰ → Configuración → Privacidad y seguridad → Cookies y datos del sitio</li>
+      <li><strong>Safari:</strong> Safari → Preferencias → Privacidad → Administrar datos de sitios web</li>
+      <li><strong>Edge:</strong> Menú ⋯ → Configuración → Privacidad, búsqueda y servicios → Cookies</li>
+    </ul>
+    <div class="highlight-box">
+      <p>⚠️ <strong>Aviso:</strong> Bloquear todas las cookies puede afectar al funcionamiento de algunos elementos del sitio web, como el formulario de contacto. TechIntegra no se responsabiliza de los problemas de funcionamiento derivados del bloqueo de cookies técnicas.</p>
+    </div>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Cookies de terceros</h2>
+    <p>TechIntegra <strong>no instala cookies de terceros</strong> en su dispositivo. Las únicas comunicaciones de datos a terceros que se producen al usar este sitio son:</p>
+    <ul>
+      <li><strong>Google Fonts</strong> — al cargar la tipografía Inter, su navegador realiza una solicitud a los servidores de Google para descargar la fuente. Google puede registrar esta solicitud conforme a su propia política de privacidad. No se instala ninguna cookie de Google en su dispositivo.</li>
+      <li><strong>Formspree</strong> — al enviar el formulario de contacto, los datos se transmiten a Formspree Inc. únicamente para su reenvío a la dirección de email de TechIntegra. Formspree actúa como encargado del tratamiento bajo las garantías del marco de transferencia UE-EEUU.</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>6. Actualizaciones de esta política</h2>
+    <p>TechIntegra puede actualizar esta Política de Cookies en cualquier momento para reflejar cambios en las cookies utilizadas, en la legislación aplicable o en la forma en que operamos nuestro sitio web. Cualquier cambio será publicado en esta página con la fecha de actualización correspondiente.</p>
+    <p>Le recomendamos revisar esta política periódicamente para estar informado sobre cómo usamos las cookies.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>7. Contacto</h2>
+    <p>Si tiene alguna pregunta sobre nuestra Política de Cookies, puede contactarnos en:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:info@techintegra.es">info@techintegra.es</a></li>
+      <li><strong>Teléfono:</strong> <a href="tel:+34643703921">+34 643 703 921</a></li>
+      <li><strong>Web:</strong> <a href="https://techintegra.es">techintegra.es</a></li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-gradient"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="TechIntegra"/>
+      <span>Consultoría técnica integral en Murcia</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="mailto:info@techintegra.es">info@techintegra.es</a>
+    </div>
+    <div class="footer-copy">© 2026 TechIntegra · Marco Antonio Torres Curo · Murcia, España</div>
+  </div>
+</footer>
+
+
+<!-- COOKIE BANNER -->
+<style>
+  .cookie-banner{position:fixed;bottom:0;left:50%;transform:translateX(-50%) translateY(110%);z-index:9999;width:100%;max-width:480px;background:rgba(8,14,31,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:2px solid transparent;border-image:linear-gradient(90deg,#F5800A,#0069a6) 1;box-shadow:0 -8px 48px rgba(0,0,0,.6);padding:20px 22px 22px;font-family:'Inter',sans-serif;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+  @media(min-width:500px){.cookie-banner{bottom:16px;border-radius:14px;box-shadow:0 -4px 40px rgba(0,0,0,.5),0 8px 32px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.06)}}
+  .cookie-banner.cookie-visible{transform:translateX(-50%) translateY(0);animation:cookieSlideUp .45s cubic-bezier(.4,0,.2,1) both}
+  .cookie-banner.cookie-hiding{animation:cookieSlideDown .35s cubic-bezier(.4,0,.2,1) forwards}
+  @keyframes cookieSlideUp{from{transform:translateX(-50%) translateY(110%);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
+  @keyframes cookieSlideDown{from{transform:translateX(-50%) translateY(0);opacity:1}to{transform:translateX(-50%) translateY(120%);opacity:0}}
+  .cookie-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:12px}
+  .cookie-title-wrap{display:flex;align-items:center;gap:8px}
+  .cookie-icon{font-size:1.3rem;flex-shrink:0;line-height:1}
+  .cookie-title{font-size:.98rem;font-weight:800;color:#fff}
+  .cookie-close{width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.9rem;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all .2s;font-family:inherit}
+  .cookie-close:hover{background:rgba(255,255,255,.14);color:#fff}
+  .cookie-text{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:14px}
+  .cookie-text a{color:#F5800A;text-decoration:underline;font-weight:500}
+  .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .cookie-btn{flex:1;min-width:120px;padding:10px 16px;border-radius:8px;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;border:none;transition:all .22s;white-space:nowrap}
+  .cookie-btn-accept{background:#F5800A;color:#fff}
+  .cookie-btn-accept:hover{background:#d96800;transform:translateY(-1px);box-shadow:0 4px 18px rgba(245,128,10,.45)}
+  .cookie-btn-necessary{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}
+  .cookie-btn-necessary:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.3);color:#fff}
+  @media(max-width:499px){.cookie-banner{border-radius:0;max-width:100%;bottom:0}.cookie-actions{flex-direction:column}.cookie-btn{flex:none;width:100%}}
+</style>
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-label="Aviso de cookies" aria-live="polite" hidden>
+  <div class="cookie-header"><div class="cookie-title-wrap"><span class="cookie-icon" aria-hidden="true">🍪</span><span class="cookie-title">Usamos cookies</span></div><button class="cookie-close" id="cookieClose" aria-label="Cerrar aviso de cookies" title="Cerrar">✕</button></div>
+  <p class="cookie-text">Utilizamos cookies técnicas necesarias para el funcionamiento de la web. No usamos cookies publicitarias ni de rastreo. Estás leyendo nuestra política de cookies.</p>
+  <div class="cookie-actions"><button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar</button><button class="cookie-btn cookie-btn-necessary" id="cookieNecessary">Solo necesarias</button></div>
+</div>
+<script>
+(function(){var K='techintegra_cookies';var b=document.getElementById('cookieBanner');function show(){b.removeAttribute('hidden');b.classList.add('cookie-visible');b.addEventListener('keydown',trap);setTimeout(function(){b.querySelector('button').focus()},450)}function hide(){b.classList.remove('cookie-visible');b.classList.add('cookie-hiding');b.removeEventListener('keydown',trap);b.addEventListener('animationend',function(){b.setAttribute('hidden','');b.classList.remove('cookie-hiding')},{once:true})}function save(t){try{localStorage.setItem(K,JSON.stringify({type:t,date:new Date().toISOString()}))}catch(e){}hide()}function trap(e){var els=b.querySelectorAll('a[href],button:not([disabled])');var f=els[0],l=els[els.length-1];if(e.key!=='Tab')return;if(e.shiftKey){if(document.activeElement===f){e.preventDefault();l.focus()}}else{if(document.activeElement===l){e.preventDefault();f.focus()}}}function init(){try{if(localStorage.getItem(K))return}catch(e){}setTimeout(show,1000)}document.getElementById('cookieAccept').addEventListener('click',function(){save('all')});document.getElementById('cookieNecessary').addEventListener('click',function(){save('necessary')});document.getElementById('cookieClose').addEventListener('click',function(){save('necessary')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!b.hasAttribute('hidden'))save('necessary')});document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init):init();})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Política de Privacidad – TechIntegra</title>
+  <meta name="description" content="Política de Privacidad de TechIntegra. Consultoría técnica integral en Murcia."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--navy:#162040;--navy-d:#0c1528;--orange:#F5800A;--bg:#080e1f;--bg2:#0a1020;--white:#fff;--text:rgba(255,255,255,.8);--muted:rgba(255,255,255,.45);--border:rgba(255,255,255,.08);--r:14px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    a{text-decoration:none;color:var(--orange)}
+    a:hover{text-decoration:underline}
+    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,14,31,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo img{height:48px;width:auto}
+    .nav-right{display:flex;align-items:center;gap:20px}
+    .nav-link{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.65);transition:color .2s}
+    .nav-link:hover{color:#fff;text-decoration:none}
+    .btn-back{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;background:rgba(245,128,10,.1);border:1px solid rgba(245,128,10,.25);color:var(--orange);font-size:.85rem;font-weight:600;transition:all .2s}
+    .btn-back:hover{background:rgba(245,128,10,.2);text-decoration:none}
+
+    /* BREADCRUMB */
+    .breadcrumb{max-width:800px;margin:0 auto;padding:20px 24px 0;display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted)}
+    .breadcrumb a{color:var(--muted);transition:color .2s}
+    .breadcrumb a:hover{color:var(--orange);text-decoration:none}
+    .breadcrumb span{color:var(--orange)}
+
+    /* CONTENT */
+    main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+    .page-header{margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(245,128,10,.2)}
+    .page-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);background:rgba(245,128,10,.1);border:1px solid rgba(245,128,10,.25);padding:4px 14px;border-radius:100px;margin-bottom:16px}
+    h1{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;color:var(--white);line-height:1.2;margin-bottom:12px}
+    .updated{font-size:.82rem;color:var(--muted)}
+
+    /* SECTIONS */
+    .legal-section{padding:28px 0;border-bottom:1px solid rgba(245,128,10,.1)}
+    .legal-section:last-child{border-bottom:none}
+    h2{font-size:1.1rem;font-weight:700;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    h2::before{content:'';width:3px;height:1em;background:var(--orange);border-radius:2px;flex-shrink:0}
+    p{font-size:.92rem;color:var(--text);margin-bottom:12px}
+    p:last-child{margin-bottom:0}
+    ul{padding-left:0;display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
+    li{font-size:.92rem;color:var(--text);padding-left:18px;position:relative}
+    li::before{content:'—';position:absolute;left:0;color:var(--orange);font-size:.8rem}
+    .highlight-box{background:rgba(245,128,10,.08);border:1px solid rgba(245,128,10,.2);border-left:3px solid var(--orange);border-radius:8px;padding:16px 20px;margin-top:12px}
+    .highlight-box p{font-size:.88rem;margin:0}
+    table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.85rem}
+    th{background:rgba(245,128,10,.12);color:var(--white);padding:10px 14px;text-align:left;border:1px solid var(--border);font-weight:600}
+    td{padding:10px 14px;border:1px solid var(--border);color:var(--text)}
+    tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+
+    /* FOOTER */
+    footer{background:#050b18;color:var(--muted);margin-top:0}
+    .footer-gradient{height:1px;background:linear-gradient(90deg,transparent,var(--orange),#0069a6,transparent)}
+    .footer-inner{max-width:1200px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+    .footer-brand{display:flex;align-items:center;gap:12px}
+    .footer-brand img{height:36px;background:#fff;padding:3px 7px;border-radius:6px}
+    .footer-brand span{font-size:.82rem}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .footer-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+    .footer-links a:hover{color:var(--orange);text-decoration:none}
+    .footer-copy{width:100%;text-align:center;padding-top:20px;border-top:1px solid var(--border);font-size:.78rem}
+
+    @media(max-width:600px){.nav-link{display:none}.footer-inner{justify-content:center;text-align:center}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="TechIntegra"/></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="index.html#contacto" class="nav-link">Contacto</a>
+      <a href="index.html" class="btn-back">← Volver al inicio</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <span>Política de Privacidad</span>
+</div>
+
+<!-- CONTENT -->
+<main>
+  <div class="page-header">
+    <div class="page-tag">Legal</div>
+    <h1>Política de Privacidad</h1>
+    <p class="updated">Última actualización: mayo de 2026 · Conforme al RGPD (UE) 2016/679 y LOPDGDD 3/2018</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>1. Responsable del tratamiento</h2>
+    <p>En cumplimiento del Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), le informamos que el responsable del tratamiento de sus datos personales es:</p>
+    <table>
+      <tr><th>Campo</th><th>Dato</th></tr>
+      <tr><td><strong>Titular</strong></td><td>Marco Antonio Torres Curo</td></tr>
+      <tr><td><strong>Nombre comercial</strong></td><td>TechIntegra</td></tr>
+      <tr><td><strong>Actividad</strong></td><td>Consultoría técnica en PCI, electricidad BT, telecomunicaciones, energía solar y climatización</td></tr>
+      <tr><td><strong>CIF</strong></td><td>Pendiente de asignación</td></tr>
+      <tr><td><strong>Domicilio</strong></td><td>Murcia, Región de Murcia, España</td></tr>
+      <tr><td><strong>Email de contacto</strong></td><td><a href="mailto:info@techintegra.es">info@techintegra.es</a></td></tr>
+      <tr><td><strong>Sitio web</strong></td><td><a href="https://techintegra.es">techintegra.es</a></td></tr>
+    </table>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. Datos personales que recogemos</h2>
+    <p>A través del formulario de contacto de esta web recogemos únicamente los datos que el propio usuario facilita de forma voluntaria:</p>
+    <ul>
+      <li><strong>Nombre y apellidos</strong> — para identificar al solicitante</li>
+      <li><strong>Dirección de correo electrónico</strong> — para responder a la consulta</li>
+      <li><strong>Número de teléfono</strong> — opcional, para contacto telefónico si el usuario lo desea</li>
+      <li><strong>Nombre de empresa o comunidad</strong> — opcional, para contextualizar la solicitud</li>
+      <li><strong>Servicio de interés y mensaje</strong> — descripción de la consulta o proyecto</li>
+    </ul>
+    <p>No recogemos datos especialmente sensibles (salud, ideología, origen racial, etc.) ni datos de menores de 14 años. Si detectamos que un usuario es menor, eliminaremos sus datos de forma inmediata.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Finalidad del tratamiento</h2>
+    <p>Los datos facilitados se tratarán exclusivamente para las siguientes finalidades:</p>
+    <ul>
+      <li>Responder a consultas, solicitudes de información y peticiones de presupuesto</li>
+      <li>Gestionar la relación comercial derivada de la prestación de servicios técnicos</li>
+      <li>Enviar comunicaciones relacionadas con el servicio solicitado</li>
+      <li>Cumplir con las obligaciones legales aplicables</li>
+    </ul>
+    <p>No utilizaremos sus datos para envío de publicidad no solicitada ni los cederemos a terceros con fines comerciales.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Base legal del tratamiento</h2>
+    <p>El tratamiento de sus datos personales se basa en las siguientes bases jurídicas:</p>
+    <ul>
+      <li><strong>Consentimiento del interesado</strong> (art. 6.1.a RGPD) — para responder a consultas enviadas voluntariamente a través del formulario</li>
+      <li><strong>Ejecución de un contrato</strong> (art. 6.1.b RGPD) — cuando el tratamiento es necesario para la prestación del servicio técnico solicitado</li>
+      <li><strong>Interés legítimo</strong> (art. 6.1.f RGPD) — para el mantenimiento de la relación comercial y la gestión administrativa</li>
+      <li><strong>Obligación legal</strong> (art. 6.1.c RGPD) — cuando el tratamiento venga exigido por la normativa aplicable</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Plazo de conservación</h2>
+    <p>Sus datos personales se conservarán durante el tiempo necesario para cumplir con la finalidad para la que fueron recogidos y, en todo caso:</p>
+    <ul>
+      <li>Mientras dure la relación comercial o el interés legítimo del responsable</li>
+      <li>Durante los plazos de prescripción de responsabilidades legales aplicables (generalmente 5 años para contratos civiles)</li>
+      <li>Hasta que el interesado ejerza su derecho de supresión, siempre que no exista obligación legal de conservación</li>
+    </ul>
+    <p>Una vez cumplidos estos plazos, los datos serán eliminados o anonimizados de forma irreversible.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>6. Cesión de datos a terceros</h2>
+    <p>TechIntegra <strong>no cede ni vende datos personales a terceros</strong> con fines comerciales o publicitarios.</p>
+    <p>Únicamente se comunicarán datos en los siguientes supuestos:</p>
+    <ul>
+      <li><strong>Obligación legal</strong> — cuando así lo exija una resolución judicial o autoridad administrativa competente</li>
+      <li><strong>Proveedor de envío de formularios</strong> — utilizamos Formspree Inc. (EE.UU.) como procesador para la recepción de mensajes del formulario de contacto, bajo las garantías del marco UE-EEUU de protección de datos</li>
+    </ul>
+  </div>
+
+  <div class="legal-section">
+    <h2>7. Derechos del interesado</h2>
+    <p>Como interesado, usted tiene los siguientes derechos reconocidos por el RGPD:</p>
+    <ul>
+      <li><strong>Acceso</strong> — obtener confirmación de si tratamos sus datos y, en su caso, acceder a ellos</li>
+      <li><strong>Rectificación</strong> — solicitar la corrección de datos inexactos o incompletos</li>
+      <li><strong>Supresión</strong> — solicitar la eliminación de sus datos cuando ya no sean necesarios o retire el consentimiento</li>
+      <li><strong>Portabilidad</strong> — recibir sus datos en formato estructurado y de uso común</li>
+      <li><strong>Oposición</strong> — oponerse al tratamiento basado en interés legítimo</li>
+      <li><strong>Limitación</strong> — solicitar que el tratamiento de sus datos quede restringido en determinadas circunstancias</li>
+    </ul>
+    <div class="highlight-box">
+      <p>📧 Para ejercer cualquiera de estos derechos, envíe un email a <a href="mailto:info@techintegra.es">info@techintegra.es</a> indicando el derecho que desea ejercer y adjuntando copia de su DNI u otro documento de identificación. Responderemos en el plazo máximo de <strong>30 días</strong>.</p>
+    </div>
+  </div>
+
+  <div class="legal-section">
+    <h2>8. Derecho a reclamar ante la AEPD</h2>
+    <p>Si considera que el tratamiento de sus datos no se ajusta a la normativa vigente, tiene derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>:</p>
+    <ul>
+      <li>Web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a></li>
+      <li>Sede: C/ Jorge Juan, 6 — 28001 Madrid</li>
+      <li>Teléfono: 901 100 099</li>
+    </ul>
+    <p>Le recomendamos que, antes de presentar una reclamación ante la AEPD, se ponga en contacto con nosotros para intentar resolver el problema directamente.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>9. Política de cookies</h2>
+    <p>Este sitio web utiliza únicamente <strong>cookies técnicas de sesión</strong>, imprescindibles para el correcto funcionamiento de la web. No utilizamos cookies publicitarias, de rastreo ni de terceros.</p>
+    <p>Para más información, consulte nuestra <a href="cookies.html">Política de Cookies</a>.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>10. Seguridad de los datos</h2>
+    <p>TechIntegra aplica las medidas técnicas y organizativas necesarias para garantizar la seguridad de sus datos y evitar su alteración, pérdida, tratamiento o acceso no autorizado, teniendo en cuenta el estado de la tecnología, la naturaleza de los datos y los riesgos a los que están expuestos.</p>
+    <p>La comunicación de datos a través del formulario de contacto se realiza mediante protocolo HTTPS con cifrado SSL/TLS.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>11. Modificaciones</h2>
+    <p>TechIntegra se reserva el derecho de modificar la presente política de privacidad para adaptarla a novedades legislativas, jurisprudenciales o interpretativas. Los cambios serán publicados en esta página con la fecha de actualización correspondiente.</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-gradient"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="TechIntegra"/>
+      <span>Consultoría técnica integral en Murcia</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="mailto:info@techintegra.es">info@techintegra.es</a>
+    </div>
+    <div class="footer-copy">© 2026 TechIntegra · Marco Antonio Torres Curo · Murcia, España</div>
+  </div>
+</footer>
+
+
+<!-- COOKIE BANNER -->
+<style>
+  .cookie-banner{position:fixed;bottom:0;left:50%;transform:translateX(-50%) translateY(110%);z-index:9999;width:100%;max-width:480px;background:rgba(8,14,31,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:2px solid transparent;border-image:linear-gradient(90deg,#F5800A,#0069a6) 1;box-shadow:0 -8px 48px rgba(0,0,0,.6);padding:20px 22px 22px;font-family:'Inter',sans-serif;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+  @media(min-width:500px){.cookie-banner{bottom:16px;border-radius:14px;box-shadow:0 -4px 40px rgba(0,0,0,.5),0 8px 32px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.06)}}
+  .cookie-banner.cookie-visible{transform:translateX(-50%) translateY(0);animation:cookieSlideUp .45s cubic-bezier(.4,0,.2,1) both}
+  .cookie-banner.cookie-hiding{animation:cookieSlideDown .35s cubic-bezier(.4,0,.2,1) forwards}
+  @keyframes cookieSlideUp{from{transform:translateX(-50%) translateY(110%);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
+  @keyframes cookieSlideDown{from{transform:translateX(-50%) translateY(0);opacity:1}to{transform:translateX(-50%) translateY(120%);opacity:0}}
+  .cookie-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:12px}
+  .cookie-title-wrap{display:flex;align-items:center;gap:8px}
+  .cookie-icon{font-size:1.3rem;flex-shrink:0;line-height:1}
+  .cookie-title{font-size:.98rem;font-weight:800;color:#fff}
+  .cookie-close{width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.9rem;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all .2s;font-family:inherit}
+  .cookie-close:hover{background:rgba(255,255,255,.14);color:#fff}
+  .cookie-close:focus-visible{outline:2px solid #F5800A;outline-offset:2px}
+  .cookie-text{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:14px}
+  .cookie-text a{color:#F5800A;text-decoration:underline;font-weight:500}
+  .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .cookie-btn{flex:1;min-width:120px;padding:10px 16px;border-radius:8px;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;border:none;transition:all .22s;white-space:nowrap}
+  .cookie-btn-accept{background:#F5800A;color:#fff}
+  .cookie-btn-accept:hover{background:#d96800;transform:translateY(-1px);box-shadow:0 4px 18px rgba(245,128,10,.45)}
+  .cookie-btn-accept:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .cookie-btn-necessary{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}
+  .cookie-btn-necessary:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.3);color:#fff}
+  .cookie-btn-necessary:focus-visible{outline:2px solid #F5800A;outline-offset:2px}
+  @media(max-width:499px){.cookie-banner{border-radius:0;max-width:100%;bottom:0}.cookie-actions{flex-direction:column}.cookie-btn{flex:none;width:100%}}
+</style>
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-label="Aviso de cookies" aria-live="polite" hidden>
+  <div class="cookie-header"><div class="cookie-title-wrap"><span class="cookie-icon" aria-hidden="true">🍪</span><span class="cookie-title">Usamos cookies</span></div><button class="cookie-close" id="cookieClose" aria-label="Cerrar aviso de cookies" title="Cerrar">✕</button></div>
+  <p class="cookie-text">Utilizamos cookies técnicas necesarias para el funcionamiento de la web. No usamos cookies publicitarias ni de rastreo. <a href="cookies.html">Más información</a></p>
+  <div class="cookie-actions"><button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar</button><button class="cookie-btn cookie-btn-necessary" id="cookieNecessary">Solo necesarias</button></div>
+</div>
+<script>
+(function(){var K='techintegra_cookies';var b=document.getElementById('cookieBanner');function show(){b.removeAttribute('hidden');b.classList.add('cookie-visible');b.addEventListener('keydown',trap);setTimeout(function(){b.querySelector('button').focus()},450)}function hide(){b.classList.remove('cookie-visible');b.classList.add('cookie-hiding');b.removeEventListener('keydown',trap);b.addEventListener('animationend',function(){b.setAttribute('hidden','');b.classList.remove('cookie-hiding')},{once:true})}function save(t){try{localStorage.setItem(K,JSON.stringify({type:t,date:new Date().toISOString()}))}catch(e){}hide()}function trap(e){var els=b.querySelectorAll('a[href],button:not([disabled])');var f=els[0],l=els[els.length-1];if(e.key!=='Tab')return;if(e.shiftKey){if(document.activeElement===f){e.preventDefault();l.focus()}}else{if(document.activeElement===l){e.preventDefault();f.focus()}}}function init(){try{if(localStorage.getItem(K))return}catch(e){}setTimeout(show,1000)}document.getElementById('cookieAccept').addEventListener('click',function(){save('all')});document.getElementById('cookieNecessary').addEventListener('click',function(){save('necessary')});document.getElementById('cookieClose').addEventListener('click',function(){save('necessary')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!b.hasAttribute('hidden'))save('necessary')});document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init):init();})();
+</script>
+
+</body>
+</html>
