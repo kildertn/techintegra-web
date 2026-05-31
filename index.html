@@ -194,8 +194,14 @@ nav.scrolled{background:rgba(8,14,31,.92);box-shadow:0 8px 40px rgba(0,0,0,.5)}
 .bento-card:hover::before{transform:scaleX(1)}
 /* PCI — wide */
 .bento-card.bento-wide{grid-column:span 2}
-.bento-card.bento-featured{background:linear-gradient(160deg,rgba(245,128,10,.1),rgba(0,105,166,.06));border-color:rgba(245,128,10,.25)}
+.bento-card.bento-featured{background:linear-gradient(160deg,rgba(245,128,10,.1),rgba(0,105,166,.06));border-color:rgba(245,128,10,.25);grid-column:span 3;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
 .bento-card.bento-featured::before{transform:scaleX(1)}
+/* Columna izquierda: contenido */
+.featured-content{display:flex;flex-direction:column;gap:0}
+/* Columna derecha: visual animado */
+.featured-visual{display:flex;justify-content:center;align-items:center;position:relative;min-height:240px}
+@media(max-width:900px){.bento-card.bento-featured{grid-column:span 2;grid-template-columns:1fr}}
+@media(max-width:600px){.bento-card.bento-featured{grid-column:span 1;grid-template-columns:1fr}.featured-visual{min-height:200px}}
 .bento-badge{position:absolute;top:16px;right:16px;background:var(--orange);color:#fff;font-size:.68rem;font-weight:800;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em}
 /* Card icon */
 .bento-icon{width:56px;height:56px;border-radius:14px;background:rgba(245,128,10,.1);border:1px solid rgba(245,128,10,.2);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:20px;transition:transform .3s}
@@ -227,35 +233,40 @@ nav.scrolled{background:rgba(8,14,31,.92);box-shadow:0 8px 40px rgba(0,0,0,.5)}
 .informe-list{padding:0;display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
 .informe-list li{font-size:.84rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:8px}
 
-/* ── AI Visual 3D ── */
-.ai-visual-3d{display:flex;justify-content:center;align-items:center;padding:12px 0 20px;perspective:600px;position:relative;min-height:160px}
+/* ── AI Doc Visual (featured card right column) ── */
+.ai-doc-visual{position:relative;width:180px;height:220px}
 /* Glow naranja de fondo */
-.ai-visual-3d::before{content:'';position:absolute;width:140px;height:100px;background:radial-gradient(ellipse,rgba(245,128,10,.25) 0%,transparent 70%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);animation:aiGlow 3s ease-in-out infinite}
-@keyframes aiGlow{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}}
-/* Documento trasero */
-.ai-doc-back{position:absolute;width:110px;height:142px;background:linear-gradient(160deg,#1a2d5a,#0c1528);border:1px solid rgba(245,128,10,.2);border-radius:8px;transform:rotateY(-8deg) rotateX(2deg) translate(18px,6px);box-shadow:0 8px 32px rgba(0,0,0,.5);z-index:0}
+.ai-doc-glow{position:absolute;width:120px;height:120px;background:radial-gradient(circle,rgba(245,128,10,.5),transparent 70%);filter:blur(40px);opacity:.3;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;animation:docPulse 3s ease-in-out infinite;z-index:0}
+@keyframes docPulse{0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(1)}50%{opacity:.55;transform:translate(-50%,-50%) scale(1.2)}}
+/* Documento de fondo */
+.ai-doc-bg{position:absolute;width:160px;height:200px;background:rgba(255,255,255,.03);border:1px solid rgba(245,128,10,.2);border-radius:12px;transform:rotate(-6deg);top:10px;left:10px;z-index:1}
 /* Documento principal */
-.ai-doc-main{position:relative;width:120px;height:156px;background:linear-gradient(160deg,#1e2d58,#162040);border:1px solid rgba(245,128,10,.35);border-radius:8px;box-shadow:0 0 0 1px rgba(245,128,10,.15),0 12px 40px rgba(0,0,0,.6),0 0 20px rgba(245,128,10,.1);z-index:1;padding:10px 10px 8px;display:flex;flex-direction:column;gap:6px;animation:aiFloat 3s ease-in-out infinite}
-@keyframes aiFloat{0%,100%{transform:translateY(0) rotate(.5deg)}50%{transform:translateY(-8px) rotate(-.5deg)}}
+.ai-doc-fg{position:absolute;width:160px;height:200px;background:rgba(22,32,64,.9);border:1px solid rgba(245,128,10,.4);border-radius:12px;padding:16px;display:flex;flex-direction:column;top:0;left:0;z-index:2;animation:docFloat 3s ease-in-out infinite;box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 20px rgba(245,128,10,.15)}
+@keyframes docFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 /* Cabecera del documento */
-.ai-doc-header{display:flex;align-items:center;gap:5px;padding-bottom:6px;border-bottom:1px solid rgba(245,128,10,.2)}
-.ai-doc-icon{font-size:.9rem;line-height:1}
-.ai-doc-label{font-size:.5rem;font-weight:700;color:var(--orange);letter-spacing:.08em;text-transform:uppercase;line-height:1.2}
-/* Líneas de texto simuladas */
-.ai-doc-lines{display:flex;flex-direction:column;gap:4px;flex:1;padding-top:2px}
-.ai-doc-line{height:4px;border-radius:2px;background:rgba(255,255,255,.12)}
-.ai-doc-line:nth-child(1){width:90%}
-.ai-doc-line:nth-child(2){width:75%}
-.ai-doc-line:nth-child(3){width:85%}
-.ai-doc-line:nth-child(4){width:60%;background:rgba(245,128,10,.25)}
-.ai-doc-line:nth-child(5){width:80%}
-.ai-doc-line:nth-child(6){width:70%}
-.ai-doc-line:nth-child(7){width:55%;background:rgba(245,128,10,.2)}
-.ai-doc-line:nth-child(8){width:88%}
-/* Sello Aprobado */
-.ai-doc-stamp{position:absolute;bottom:10px;right:8px;background:rgba(74,222,128,.15);border:1.5px solid rgba(74,222,128,.5);border-radius:4px;padding:2px 5px;display:flex;align-items:center;gap:3px}
-.ai-doc-stamp span{font-size:.42rem;font-weight:800;color:#4ade80;text-transform:uppercase;letter-spacing:.06em}
-.ai-doc-stamp::before{content:'✓';font-size:.55rem;color:#4ade80;font-weight:900}
+.doc-hdr{background:rgba(245,128,10,.15);border-radius:6px;padding:6px 10px;display:flex;align-items:center;gap:6px;margin-bottom:12px}
+.doc-hdr-icon{font-size:.9rem;line-height:1;flex-shrink:0}
+.doc-hdr-text{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;line-height:1.2}
+/* Barras de texto */
+.doc-bars{display:flex;flex-direction:column;gap:0;flex:1}
+.doc-bar{height:8px;border-radius:4px;background:rgba(255,255,255,.1);margin:8px 0}
+/* Sello APROBADO */
+.doc-seal{background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.4);color:#4ade80;border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;text-align:center;margin-top:12px;letter-spacing:.04em}
+
+/* ── AI Doc Preview (old, keep for backward compat) ── */
+.ai-doc-preview{display:flex;justify-content:center;align-items:center;padding:16px 0 20px;position:relative;min-height:185px}
+.ai-doc-preview::before{content:'';position:absolute;width:120px;height:80px;background:radial-gradient(ellipse,rgba(245,128,10,.28) 0%,transparent 70%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);animation:aiGlow 3s ease-in-out infinite;pointer-events:none}
+@keyframes aiGlow{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.25)}}
+.ai-doc-layer{position:absolute;width:130px;height:170px;border-radius:10px}
+.ai-doc-layer-back{background:linear-gradient(160deg,#1a2d5a,#0c1528);border:1px solid rgba(245,128,10,.18);transform:rotate(-6deg) translate(14px,8px);box-shadow:0 6px 28px rgba(0,0,0,.45);z-index:0}
+.ai-doc-layer-front{background:linear-gradient(160deg,#1e2d58,#162040);border:1px solid rgba(245,128,10,.4);box-shadow:0 0 0 1px rgba(245,128,10,.12),0 10px 36px rgba(0,0,0,.55),0 0 22px rgba(245,128,10,.12);z-index:1;padding:11px 10px 10px;display:flex;flex-direction:column;gap:7px;animation:aiFloat 3s ease-in-out infinite;position:relative}
+@keyframes aiFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.ai-doc-hd{display:flex;align-items:center;gap:5px;padding-bottom:7px;border-bottom:1px solid rgba(245,128,10,.25)}
+.ai-doc-hd span:first-child{font-size:.85rem;line-height:1}
+.ai-doc-hd-text{font-size:.38rem;font-weight:800;color:var(--orange);letter-spacing:.07em;text-transform:uppercase;line-height:1.3}
+.ai-doc-body{display:flex;flex-direction:column;gap:5px;flex:1}
+.ai-doc-bar{height:4px;border-radius:2px;background:rgba(255,255,255,.14)}
+.ai-doc-seal{background:rgba(74,222,128,.14);border:1.5px solid rgba(74,222,128,.5);border-radius:5px;padding:3px 6px;font-size:.4rem;font-weight:900;color:#4ade80;text-transform:uppercase;letter-spacing:.08em;text-align:center;margin-top:auto}
 @media(max-width:900px){.bento-grid{grid-template-columns:1fr 1fr}.bento-card.bento-wide{grid-column:span 2}}
 @media(max-width:600px){.bento-grid{grid-template-columns:1fr}.bento-card.bento-wide{grid-column:span 1}.svc-cols{grid-template-columns:1fr}}
 
@@ -306,12 +317,12 @@ nav.scrolled{background:rgba(8,14,31,.92);box-shadow:0 8px 40px rgba(0,0,0,.5)}
    TESTIMONIALS CAROUSEL
 ══════════════════════════════════════ */
 #testimonios{background:var(--bg2)}
-.testimonials-track-wrap{overflow:hidden;position:relative;margin:0 auto;border-radius:16px;text-align:left}
-.testimonials-track{display:flex;justify-content:flex-start;gap:24px;transition:transform .5s cubic-bezier(.4,0,.2,1);padding:12px;padding-bottom:20px}
-.testimonial{min-width:calc(33.333% - 16px);flex-shrink:0;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:all .3s}
-.carousel-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:32px;width:100%;text-align:center}
-@media(max-width:1024px){.testimonial{min-width:calc(50% - 12px)}}
-@media(max-width:768px){.testimonial{min-width:calc(100% - 32px)}}
+.testimonials-track-wrap{width:100%;overflow:hidden;position:relative;margin:0 auto;border-radius:16px}
+.testimonials-track{display:flex;justify-content:flex-start;gap:0;transition:transform .5s cubic-bezier(.4,0,.2,1);padding:0;padding-bottom:20px}
+.testimonial{min-width:100%;width:100%;flex-shrink:0;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:border-color .3s,background .3s,box-shadow .3s;box-sizing:border-box}
+.carousel-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin:28px auto 0;width:100%}
+@media(max-width:1024px){.testimonial{min-width:100%;width:100%}}
+@media(max-width:768px){.testimonial{min-width:100%;width:100%;padding:20px}}
 .testimonial:hover{background:rgba(255,255,255,.07);border-color:rgba(245,128,10,.2);transform:translateY(-4px)}
 .stars{color:#f59e0b;font-size:1rem;margin-bottom:14px;letter-spacing:2px}
 .testimonial blockquote{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:20px;font-style:italic}
@@ -617,42 +628,50 @@ footer{background:#050b18;color:rgba(255,255,255,.5)}
         </div></div>
       </div>
 
-      <!-- Informes IA -->
+      <!-- Informes IA — full width span 3, 2-col internal layout -->
       <div class="bento-card bento-featured reveal reveal-d3">
         <div class="bento-badge">Diferencial IA</div>
-        <div class="bento-icon" style="background:linear-gradient(135deg,rgba(245,128,10,.25),rgba(245,128,10,.05));border-color:rgba(245,128,10,.4)">📋</div>
-        <h3>Informes Técnicos con IA</h3>
-        <p>Generamos informes profesionales completos en menos de 24 horas gracias a nuestra plataforma de inteligencia artificial.</p>
-        <ul class="informe-list">
-          <li>✔ Memoria descriptiva y justificativa</li>
-          <li>✔ Cálculos técnicos normalizados</li>
-          <li>✔ Planos esquemáticos del proyecto</li>
-          <li>✔ Referencias normativas actualizadas 2025</li>
-          <li>✔ Mediciones y presupuesto orientativo</li>
-          <li>✔ Firmado por ingeniero colegiado</li>
-        </ul>
-        <!-- AI Visual 3D -->
-        <div class="ai-visual-3d">
-          <div class="ai-doc-back"></div>
-          <div class="ai-doc-main">
-            <div class="ai-doc-header">
-              <span class="ai-doc-icon">🤖</span>
-              <span class="ai-doc-label">Informe<br>TechIntegra</span>
+
+        <!-- Columna izquierda: contenido -->
+        <div class="featured-content">
+          <div class="bento-icon" style="background:linear-gradient(135deg,rgba(245,128,10,.25),rgba(245,128,10,.05));border-color:rgba(245,128,10,.4)">📋</div>
+          <h3>Informes Técnicos con IA</h3>
+          <p style="margin-bottom:16px">Generamos informes profesionales completos en menos de 24 horas gracias a nuestra plataforma de inteligencia artificial.</p>
+          <ul class="informe-list">
+            <li>✔ Memoria descriptiva y justificativa</li>
+            <li>✔ Cálculos técnicos normalizados</li>
+            <li>✔ Planos esquemáticos del proyecto</li>
+            <li>✔ Referencias normativas actualizadas 2025</li>
+            <li>✔ Mediciones y presupuesto orientativo</li>
+            <li>✔ Firmado por ingeniero colegiado</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary" style="font-size:.88rem;padding:11px 22px;width:fit-content;margin-top:20px">Solicitar informe →</a>
+        </div>
+
+        <!-- Columna derecha: animación documento -->
+        <div class="featured-visual">
+          <div class="ai-doc-visual">
+            <!-- Glow naranja -->
+            <div class="ai-doc-glow"></div>
+            <!-- Documento de fondo -->
+            <div class="ai-doc-bg"></div>
+            <!-- Documento principal -->
+            <div class="ai-doc-fg">
+              <div class="doc-hdr">
+                <span class="doc-hdr-icon">🤖</span>
+                <span class="doc-hdr-text">Informe<br>TechIntegra</span>
+              </div>
+              <div class="doc-bars">
+                <div class="doc-bar" style="width:80%"></div>
+                <div class="doc-bar" style="width:60%"></div>
+                <div class="doc-bar" style="width:90%"></div>
+                <div class="doc-bar" style="width:50%"></div>
+              </div>
+              <div class="doc-seal">✓ APROBADO</div>
             </div>
-            <div class="ai-doc-lines">
-              <div class="ai-doc-line"></div>
-              <div class="ai-doc-line"></div>
-              <div class="ai-doc-line"></div>
-              <div class="ai-doc-line"></div>
-              <div class="ai-doc-line"></div>
-              <div class="ai-doc-line"></div>
-              <div class="ai-doc-line"></div>
-              <div class="ai-doc-line"></div>
-            </div>
-            <div class="ai-doc-stamp"><span>Aprobado</span></div>
           </div>
         </div>
-        <a href="#contacto" class="btn btn-primary" style="font-size:.85rem;padding:10px 20px;margin-top:auto">Solicitar informe →</a>
+
       </div>
 
     </div>
@@ -965,26 +984,7 @@ document.getElementById('scrollTop').addEventListener('click',()=>window.scrollT
 })();
 
 /* ══════════════════════════════════════
-   ANIMATED COUNTERS
-══════════════════════════════════════ */
-function animateCounter(el){
-  if(el.dataset.animated) return; // evita doble disparo
-  el.dataset.animated = '1';
-  const target = +el.dataset.target;
-  const dur = 2000;
-  const start = performance.now();
-  function step(now){
-    const p    = Math.min((now - start) / dur, 1);
-    const ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
-    el.textContent = Math.round(ease * target);
-    if(p < 1) requestAnimationFrame(step);
-    else el.textContent = target;
-  }
-  requestAnimationFrame(step);
-}
-
-/* ══════════════════════════════════════
-   SCROLL REVEAL + COUNTERS
+   SCROLL REVEAL
 ══════════════════════════════════════ */
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -996,33 +996,31 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold: .12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// Counters: threshold 0.1 + iniciados en window.load para garantizar DOM completo
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.counter').forEach(animateCounter);
-      counterObs.unobserve(e.target);
-    }
-  });
-}, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
-
-function initCounters(){
-  document.querySelectorAll('.hero-stats, .why-statsbar').forEach(el => {
-    // Si ya es visible en viewport al cargar (hero stats), anima inmediatamente
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight && rect.bottom > 0){
-      el.querySelectorAll('.counter').forEach(animateCounter);
-    } else {
-      counterObs.observe(el);
-    }
-  });
-}
-
-if(document.readyState === 'complete'){
-  initCounters();
-} else {
-  window.addEventListener('load', initCounters);
-}
+/* ══════════════════════════════════════
+   ANIMATED COUNTERS — window.load + 500ms delay
+══════════════════════════════════════ */
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.querySelectorAll('.counter').forEach(function(el){
+      var target = +el.dataset.target;
+      var dur    = 2000;
+      var start  = null;
+      function easeOutQuad(t){ return t * (2 - t); }
+      function step(ts){
+        if(!start) start = ts;
+        var elapsed = Math.min(ts - start, dur);
+        var progress = easeOutQuad(elapsed / dur);
+        el.textContent = Math.round(progress * target);
+        if(elapsed < dur){
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target;
+        }
+      }
+      requestAnimationFrame(step);
+    });
+  }, 500);
+});
 
 /* ══════════════════════════════════════
    TECH CAROUSEL
@@ -1090,40 +1088,45 @@ document.querySelectorAll('.faq-btn').forEach(btn=>{
    TESTIMONIALS CAROUSEL
 ══════════════════════════════════════ */
 (function(){
-  const track=document.getElementById('testimonialsTrack');
-  const dotsEl=document.getElementById('ccDots');
-  const cards=[...track.querySelectorAll('.testimonial')];
-  let cur=0,autoT;
-  const visible=()=>window.innerWidth<768?1:window.innerWidth<1024?2:3;
+  const track  = document.getElementById('testimonialsTrack');
+  const dotsEl = document.getElementById('ccDots');
+  const cards  = [...track.querySelectorAll('.testimonial')];
+  let cur = 0, autoT;
+  const total = cards.length;
 
   function goTo(i){
-    const v   = visible();
-    const max = cards.length - v;
-    cur = Math.max(0, Math.min(i, max));
-    // Usa offsetWidth real de la tarjeta + gap para un cálculo exacto
-    const cardW = cards[0].getBoundingClientRect().width;
-    const gap   = 24;
-    track.style.transform = `translateX(-${cur * (cardW + gap)}px)`;
-    dotsEl.querySelectorAll('.cc-dot').forEach((d, di) => d.classList.toggle('active', di === cur));
+    cur = ((i % total) + total) % total; // wrap circular
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dotsEl.querySelectorAll('.cc-dot').forEach((d, di) =>
+      d.classList.toggle('active', di === cur)
+    );
   }
+
   function mkDots(){
     dotsEl.innerHTML = '';
-    const v = visible();
-    const n = Math.max(cards.length - v + 1, 1);
-    for(let i = 0; i < n; i++){
+    for(let i = 0; i < total; i++){
       const d = document.createElement('div');
       d.className = 'cc-dot' + (i === 0 ? ' active' : '');
-      d.addEventListener('click', () => goTo(i));
+      d.addEventListener('click', () => { clearInterval(autoT); goTo(i); startAuto(); });
       dotsEl.appendChild(d);
     }
   }
-  document.getElementById('prevBtn').addEventListener('click',()=>{clearInterval(autoT);goTo(cur-1);startAuto()});
-  document.getElementById('nextBtn').addEventListener('click',()=>{clearInterval(autoT);goTo(cur+1);startAuto()});
-  track.addEventListener('mouseenter',()=>clearInterval(autoT));
-  track.addEventListener('mouseleave',()=>startAuto());
-  function startAuto(){autoT=setInterval(()=>{const v=visible();cur>=cards.length-v?goTo(0):goTo(cur+1)},4500)}
-  window.addEventListener('resize',()=>{mkDots();goTo(0)});
-  mkDots();startAuto();
+
+  function startAuto(){
+    autoT = setInterval(() => goTo(cur + 1), 4500);
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    clearInterval(autoT); goTo(cur - 1); startAuto();
+  });
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    clearInterval(autoT); goTo(cur + 1); startAuto();
+  });
+  track.addEventListener('mouseenter', () => clearInterval(autoT));
+  track.addEventListener('mouseleave', () => startAuto());
+
+  mkDots();
+  startAuto();
 })();
 
 /* ══════════════════════════════════════
