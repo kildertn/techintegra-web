@@ -306,10 +306,12 @@ nav.scrolled{background:rgba(8,14,31,.92);box-shadow:0 8px 40px rgba(0,0,0,.5)}
    TESTIMONIALS CAROUSEL
 ══════════════════════════════════════ */
 #testimonios{background:var(--bg2)}
-.testimonials-track-wrap{overflow:hidden;position:relative;margin:0 -12px;border-radius:16px}
-.testimonials-track{display:flex;gap:24px;transition:transform .5s cubic-bezier(.4,0,.2,1);padding:12px;padding-bottom:20px}
-.testimonial{min-width:min(340px,calc(100vw - 80px));background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:all .3s;flex-shrink:0}
-@media(max-width:768px){.testimonial{min-width:calc(100vw - 64px)}}
+.testimonials-track-wrap{overflow:hidden;position:relative;margin:0 auto;border-radius:16px;text-align:left}
+.testimonials-track{display:flex;justify-content:flex-start;gap:24px;transition:transform .5s cubic-bezier(.4,0,.2,1);padding:12px;padding-bottom:20px}
+.testimonial{min-width:calc(33.333% - 16px);flex-shrink:0;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:all .3s}
+.carousel-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:32px;width:100%;text-align:center}
+@media(max-width:1024px){.testimonial{min-width:calc(50% - 12px)}}
+@media(max-width:768px){.testimonial{min-width:calc(100% - 32px)}}
 .testimonial:hover{background:rgba(255,255,255,.07);border-color:rgba(245,128,10,.2);transform:translateY(-4px)}
 .stars{color:#f59e0b;font-size:1rem;margin-bottom:14px;letter-spacing:2px}
 .testimonial blockquote{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:20px;font-style:italic}
@@ -966,14 +968,17 @@ document.getElementById('scrollTop').addEventListener('click',()=>window.scrollT
    ANIMATED COUNTERS
 ══════════════════════════════════════ */
 function animateCounter(el){
-  const target=+el.dataset.target;
-  const dur=1800;const start=performance.now();
+  if(el.dataset.animated) return; // evita doble disparo
+  el.dataset.animated = '1';
+  const target = +el.dataset.target;
+  const dur = 2000;
+  const start = performance.now();
   function step(now){
-    const p=Math.min((now-start)/dur,1);
-    const ease=1-Math.pow(1-p,3);
-    el.textContent=Math.round(ease*target);
-    if(p<1)requestAnimationFrame(step);
-    else el.textContent=target;
+    const p    = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
+    el.textContent = Math.round(ease * target);
+    if(p < 1) requestAnimationFrame(step);
+    else el.textContent = target;
   }
   requestAnimationFrame(step);
 }
@@ -981,25 +986,43 @@ function animateCounter(el){
 /* ══════════════════════════════════════
    SCROLL REVEAL + COUNTERS
 ══════════════════════════════════════ */
-const revealObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
     if(e.isIntersecting){
       e.target.classList.add('visible');
       revealObs.unobserve(e.target);
     }
   });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+}, { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-const counterObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
+// Counters: threshold 0.1 + iniciados en window.load para garantizar DOM completo
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
     if(e.isIntersecting){
       e.target.querySelectorAll('.counter').forEach(animateCounter);
       counterObs.unobserve(e.target);
     }
   });
-},{threshold:.5});
-document.querySelectorAll('.hero-stats,.why-statsbar').forEach(el=>counterObs.observe(el));
+}, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+
+function initCounters(){
+  document.querySelectorAll('.hero-stats, .why-statsbar').forEach(el => {
+    // Si ya es visible en viewport al cargar (hero stats), anima inmediatamente
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight && rect.bottom > 0){
+      el.querySelectorAll('.counter').forEach(animateCounter);
+    } else {
+      counterObs.observe(el);
+    }
+  });
+}
+
+if(document.readyState === 'complete'){
+  initCounters();
+} else {
+  window.addEventListener('load', initCounters);
+}
 
 /* ══════════════════════════════════════
    TECH CAROUSEL
@@ -1074,16 +1097,25 @@ document.querySelectorAll('.faq-btn').forEach(btn=>{
   const visible=()=>window.innerWidth<768?1:window.innerWidth<1024?2:3;
 
   function goTo(i){
-    const v=visible();const max=cards.length-v;
-    cur=Math.max(0,Math.min(i,max));
-    const w=cards[0].offsetWidth+24;
-    track.style.transform=`translateX(-${cur*w}px)`;
-    dotsEl.querySelectorAll('.cc-dot').forEach((d,di)=>d.classList.toggle('active',di===cur));
+    const v   = visible();
+    const max = cards.length - v;
+    cur = Math.max(0, Math.min(i, max));
+    // Usa offsetWidth real de la tarjeta + gap para un cálculo exacto
+    const cardW = cards[0].getBoundingClientRect().width;
+    const gap   = 24;
+    track.style.transform = `translateX(-${cur * (cardW + gap)}px)`;
+    dotsEl.querySelectorAll('.cc-dot').forEach((d, di) => d.classList.toggle('active', di === cur));
   }
   function mkDots(){
-    dotsEl.innerHTML='';
-    const v=visible();const n=cards.length-v+1;
-    for(let i=0;i<n;i++){const d=document.createElement('div');d.className='cc-dot'+(i===0?' active':'');d.addEventListener('click',()=>goTo(i));dotsEl.appendChild(d)}
+    dotsEl.innerHTML = '';
+    const v = visible();
+    const n = Math.max(cards.length - v + 1, 1);
+    for(let i = 0; i < n; i++){
+      const d = document.createElement('div');
+      d.className = 'cc-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    }
   }
   document.getElementById('prevBtn').addEventListener('click',()=>{clearInterval(autoT);goTo(cur-1);startAuto()});
   document.getElementById('nextBtn').addEventListener('click',()=>{clearInterval(autoT);goTo(cur+1);startAuto()});
